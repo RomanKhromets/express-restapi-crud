@@ -1,9 +1,16 @@
 const express = require('express');
 const port = 3000;
+const bodyParser = require('body-parser');
 const app = express();
 
+// Use Node.js body parsing middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true,
+}));
+
 app.get('/', (request, response) => {
-  response.send('Hello, Server!');
+  response.send({message: 'Node.js and Express REST API'});
 });
 
 // Start the server
