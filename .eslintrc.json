@@ -4,7 +4,12 @@
         "commonjs": true,
         "es2021": true
     },
-    "extends": ["airbnb-base", "plugin:node/recommended"],
+    "extends": [
+        "airbnb-base", 
+        "plugin:node/recommended",
+        "prettier",
+        "prettier/standard"
+    ],
     "parserOptions": {
         "ecmaVersion": 12
     },
