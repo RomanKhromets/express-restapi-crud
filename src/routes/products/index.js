@@ -15,8 +15,11 @@ router.get('/', async (request, response) => {
 // POST new product
 router.post('/', async (request, response) => {
   const product = new Product({
-    name: request.body.name,
+    title: request.body.title,
+    price: request.body.price,
     description: request.body.description,
+    created_date: request.body.created_date,
+    updated_date: request.body.created_date,
   });
   try {
     const savedProducts = await product.save();
@@ -55,8 +58,10 @@ router.patch('/:productId', async (request, response) => {
       { _id: request.params.productId },
       {
         $set: {
-          name: request.body.name,
+          title: request.body.title,
+          price: request.body.price,
           description: request.body.description,
+          updated_date: Date.now(),
         },
       }
     );
